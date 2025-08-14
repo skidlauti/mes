@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>I LOVE- ENCODED.PE</title>
+</head>
+<body>
+    <!-- Corazones flotantes de fondo -->
+    <div class="background-hearts">
+        <div class="heart-bg">❤️</div>
+        <div class="heart-bg">💕</div>
+        <div class="heart-bg">💖</div>
+        <div class="heart-bg">💗</div>
+        <div class="heart-bg">💓</div>
+        <div class="heart-bg">🎁</div>
+        <div class="heart-bg">✨</div>
+        <div class="heart-bg">🌟</div>
+    </div>
+
+    <!-- Estrellas brillantes -->
+    <div class="stars-container">
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+    </div>
+
+    <!-- Burbujas de amor -->
+    <div class="bubbles-container">
+        <div class="bubble">💕</div>
+        <div class="bubble">💖</div>
+        <div class="bubble">💗</div>
+        <div class="bubble">💓</div>
+        <div class="bubble">🎁</div>
+        <div class="bubble">✨</div>
+        <div class="bubble">🌟</div>
+        <div class="bubble">🌹</div>
+    </div>
+
+    <!-- Imagen del regalo con efecto de brillo -->
+    <div class="gift-container">
+        <img class="gift-image" src="cajita.webp" alt="Regalo especial para ti">
+        <div class="gift-glow"></div>
+        <div class="gift-sparkles">
+            <div class="sparkle">✨</div>
+            <div class="sparkle">✨</div>
+            <div class="sparkle">✨</div>
+            <div class="sparkle">✨</div>
+            <div class="sparkle">✨</div>
+            <div class="sparkle">✨</div>
+        </div>
+    </div>
+
+    <div class="greetings">
+        <span>H</span>
+        <span>O</span>
+        <span>L</span>
+        <span>A</span>
+        <span class="heart-emoji">❤️</span>
+    </div>
+    
+    <div class="greetings">
+        <span>C</span>
+        <span>U</span>
+        <span>M</span>
+        <span>I</span>
+        <span>T</span>
+        <span>A</span>
+    </div>
+    
+    <div class="description">
+        <span>"Algo sencillo pero especial para vos" ❤️</span>
+    </div>
+    
+    <div class="button">
+        <button class="romantic-button">
+            <a href="FLORES.html">¡Abri el regalo! 🎁💝</a>
+        </button>
+    </div>
+
+    <!-- Mensaje flotante romántico -->
+    <div class="floating-romantic-message">
+        <span>Te amo más que ayer, pero menos que mañana 💕</span>
+    </div>
+
+    <script>
+        // Efecto de confeti cuando se hace clic en el botón
+        document.addEventListener('DOMContentLoaded', function() {
+            const button = document.querySelector('.romantic-button');
+            if (button) {
+                button.addEventListener('click', function() {
+                    createConfetti();
+                });
+            }
+        });
+
+        // Efecto de confeti
+        function createConfetti() {
+            const colors = ['#ff6b9d', '#ff8fab', '#ffb3c1', '#ffd1dc', '#ff69b4'];
+            const emojis = ['❤️', '💕', '💖', '💗', '��', '🎁', '✨', '🌟', '🌹', '🌸', '💝', '🎀'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                confetti.style.position = 'fixed';
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = '-10px';
+                confetti.style.fontSize = (Math.random() * 15 + 10) + 'px';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.zIndex = '1000';
+                confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+                
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    if (document.body.contains(confetti)) {
+                        document.body.removeChild(confetti);
+                    }
+                }, 5000);
+            }
+        }
+
+        // Agregar animación de caída para el confeti
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(${window.innerHeight}px) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
